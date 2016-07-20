@@ -7,11 +7,7 @@ const Feature = Model.extend({
     height: -1,
     text: "",
     fillColor: "red",
-    fillOpacity: 0.5,
-    type: "rectangle",
-    borderSize: 1,
-    borderColor: "black",
-    borderOpacity: 0.5,
+    strokeColor: "black",
     validate: true,
     row: 0
   },

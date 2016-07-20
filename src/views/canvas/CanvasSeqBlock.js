@@ -141,9 +141,14 @@ const View = boneView.extend({
       const ctx = this.ctx;
       data.model.attributes.features.each(function(feature) {
         ctx.fillStyle = feature.attributes.fillColor || "red";
+        ctx.strokeStyle = feature.attributes.strokeColor || "black";
         const len = feature.attributes.xEnd - feature.attributes.xStart + 1;
         const y = (feature.attributes.row + 1) * rectHeight;
-        return ctx.fillRect(feature.attributes.xStart * rectWidth + data.xZero,y + data.yZero,rectWidth * len,rectHeight);
+        ctx.beginPath();
+        ctx.rect(feature.attributes.xStart * rectWidth + data.xZero,y + data.yZero,rectWidth * len,rectHeight);
+        ctx.stroke();
+        ctx.fill();
+        return;
       });
 
       // draw text
